@@ -15,10 +15,6 @@ const App = ({ fetchPokemon, pending, showPokemon, pokemons, catchPokemon, click
     fetchPokemon()
   }, [fetchPokemon])
 
-  useEffect(() => {
-    console.log(pokemons)
-  }, [pokemons])
-
   if (pending) return <Loader />
 
   return (
