@@ -10,11 +10,11 @@ import GameBoy from './components/GameBoy'
 import PokeList from './components/PokeList'
 import Loader from './components/Loader'
 
-const App = ({ fetchPokemon, pending, showPokemon, pokemons, catchPokemon }) => {
+const App = ({ fetchPokemon, pending, showPokemon, pokemons, catchPokemon, click }) => {
   useEffect(() => {
     fetchPokemon()
   }, [fetchPokemon])
-  
+
   useEffect(() => {
     console.log(pokemons)
   }, [pokemons])
@@ -24,7 +24,7 @@ const App = ({ fetchPokemon, pending, showPokemon, pokemons, catchPokemon }) => 
   return (
     <div className='App'>
       <GameBoy showPokemon={() => showPokemon(pokemons)} catchPokemon={catchPokemon} />
-      <PokeList />
+      <PokeList click={click} />
     </div>
   )
 }
@@ -34,7 +34,8 @@ App.propTypes = {
   pending: PropTypes.bool,
   showPokemon: PropTypes.func,
   pokemons: PropTypes.array,
-  catchPokemon: PropTypes.func
+  catchPokemon: PropTypes.func,
+  click: PropTypes.number
 }
 
 const mapStateToProps = ({ click, pokemons, pending }) => {

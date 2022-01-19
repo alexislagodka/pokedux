@@ -27,6 +27,7 @@ const reducer = (state = initialState, action) => {
     case CATCH_POKEMON:
       return {
         ...state,
+        click: state.click + 1,
         pokemons: state.pokemons.map(pokemon => {
           if (pokemon.id === state.onScreen.id) {
             const isCaugth = pokemon.captureRate + action.random
