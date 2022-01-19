@@ -1,6 +1,9 @@
 const path = require('path')
 
 module.exports = {
+  globals: {
+    fetch: false
+  },
   env: {
     browser: true,
     es2021: true
